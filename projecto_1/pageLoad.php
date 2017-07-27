@@ -1,10 +1,14 @@
 <?php
+require_once 'Routes.php';
 
 $routes= explode('/', $_SERVER['REQUEST_URI']);
-$fileName = $routes[1] == '' ? 'welcome.php': $routes[1].'.php';
+$route = '/'.$routes[1];
 
-if(file_exists(__DIR__."/".$fileName)){
-    require($fileName);
-} else {
-    echo 'page not found';
-}
+if($route == '/')
+    require(Routes::getDefaultRoute());
+
+else if(Routes::routeExists($route))
+    require(Routes::getRoute($route));
+
+else
+    echo '404 page not found';
