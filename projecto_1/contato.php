@@ -1,4 +1,5 @@
-<h1>Contacto</h1>
+<?php  require_once "conn/Conexao.php";?>
+<h1><?php echo (Conexao::getRouteContent("/contato","header"))?></h1>
 <form action="/data" method="post">
     <div class="form-group">
         <label for="name">Nome</label>
