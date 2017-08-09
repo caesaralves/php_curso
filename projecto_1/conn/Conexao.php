@@ -66,4 +66,13 @@ class Conexao
         return $res["conteudo"];
     }
 
+    public static function getAnyRoute($text){
+        $sql = "Select * from paginas WHERE conteudo LIKE :text";
+        $statement = self::getInstance()->prepare($sql);
+        $statement->bindValue('text',"%{$text}%");
+        $statement ->execute();
+        $res = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+
 }

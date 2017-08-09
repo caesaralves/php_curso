@@ -12,7 +12,9 @@ class Routes
        "/empresa" => "empresa.php",
        "/produtos" => "produtos.php",
        "/servicos" => "servicos.php",
-       "/welcome" => "welcome.php");
+       "/welcome" => "welcome.php",
+       "/procura" => "procura.php"
+   );
    const DEFAULT_ROUTE = "/welcome";
 
 

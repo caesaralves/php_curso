@@ -3,6 +3,8 @@ require_once 'Routes.php';
 
 $routes= explode('/', $_SERVER['REQUEST_URI']);
 $route = '/'.$routes[1];
+//clean params from route
+$route = strtok($route, '?');
 
 if($route == '/')
     require(Routes::getDefaultRoute());
