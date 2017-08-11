@@ -75,4 +75,11 @@ class Conexao
         return $res;
     }
 
+    public static function runQuery($query) {
+        $statement = self::getInstance()->prepare($query);
+        if($statement ->execute())
+            echo "Sucesso";
+        else
+            echo "Erro";
+    }
 }
