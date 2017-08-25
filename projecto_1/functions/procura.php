@@ -1,5 +1,5 @@
 <?php
-require_once "conn/Conexao.php";
+require_once "helpers/Conexao.php";
 
 $notFound = "<h4>Results not found</h4>";
 

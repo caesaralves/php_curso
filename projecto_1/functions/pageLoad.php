@@ -1,5 +1,5 @@
 <?php
-require_once 'Routes.php';
+require_once 'helpers/Routes.php';
 
 $routes= explode('/', $_SERVER['REQUEST_URI']);
 $route = '/'.$routes[1];

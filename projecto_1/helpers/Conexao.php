@@ -3,8 +3,8 @@ class Conexao
 {
     private static $conn = null;
     const PASSWORD ="";
-    const USER ="";
-    const HOST ="";
+    const USER ="root";
+    const HOST ="localhost";
     const DB = "";
 
     final private function __construct()
@@ -82,4 +82,24 @@ class Conexao
         else
             echo "Erro";
     }
+
+    public  static function dummyUser($user, $password) {
+        $sec_pass = password_hash($password,PASSWORD_DEFAULT);
+         $statement = self::getInstance()->prepare(
+             "INSERT INTO users (id, username, pass) VALUES(NULL ,:username, :password)");
+        $statement->bindValue('username',$user);
+        $statement->bindValue('password',$sec_pass);
+        $statement ->execute();
+        echo "user criado";
+    }
+
+    public static function validateUser($user, $password) {
+        $sql = "Select * from users WHERE username= :user";
+        $statement = self::getInstance()->prepare($sql);
+        $statement->bindValue('user',$user);
+        $statement ->execute();
+        $res = $statement->fetch(PDO::FETCH_ASSOC);
+        return !empty($res) && isset($res["pass"]) && password_verify($password, $res["pass"]);
+    }
+
 }

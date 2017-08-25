@@ -1,5 +1,5 @@
 <?php
-require_once "conn/Conexao.php";
+require_once "helpers/Conexao.php";
 
 //iserir os dados da bd no ficheiro connexao
 $query = "CREATE TABLE `paginas` (

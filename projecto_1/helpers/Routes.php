@@ -8,12 +8,13 @@
 class Routes
 {
    private static $routes = array(
-       "/contato" => "contato.php",
-       "/empresa" => "empresa.php",
-       "/produtos" => "produtos.php",
-       "/servicos" => "servicos.php",
-       "/welcome" => "welcome.php",
-       "/procura" => "procura.php"
+       "/contato" => "ui/contato.php",
+       "/empresa" => "ui/empresa.php",
+       "/produtos" => "ui/produtos.php",
+       "/servicos" => "ui/servicos.php",
+       "/welcome" => "ui/welcome.php",
+       "/procura" => "functions/procura.php",
+       "/editar" => "ui/editar.php"
    );
    const DEFAULT_ROUTE = "/welcome";
 
