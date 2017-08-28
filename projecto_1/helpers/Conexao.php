@@ -5,7 +5,7 @@ class Conexao
     const PASSWORD ="";
     const USER ="root";
     const HOST ="localhost";
-    const DB = "teste";
+    const DB = "";
 
     final private function __construct()
     {
