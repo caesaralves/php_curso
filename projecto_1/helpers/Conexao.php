@@ -5,7 +5,7 @@ class Conexao
     const PASSWORD ="";
     const USER ="root";
     const HOST ="localhost";
-    const DB = "";
+    const DB = "teste";
 
     final private function __construct()
     {
@@ -100,6 +100,27 @@ class Conexao
         $statement ->execute();
         $res = $statement->fetch(PDO::FETCH_ASSOC);
         return !empty($res) && isset($res["pass"]) && password_verify($password, $res["pass"]);
+    }
+
+    /**
+     * @return array
+     */
+    public static function getAllPages() {
+        $sql = "Select * from paginas";
+        $statement = self::getInstance()->prepare($sql);
+        $statement -> execute();
+        $res = $statement -> fetchAll(PDO::FETCH_ASSOC);
+
+        return $res;
+    }
+
+    public static function updateRouteContent($route, $fieldName, $content){
+        $sql = "UPDATE paginas SET conteudo = :conteudo WHERE rota = :rota AND nome_campo = :nome_campo";
+        $statement = self::getInstance()->prepare($sql);
+        $statement->bindValue("rota",$route);
+        $statement->bindValue("nome_campo",$fieldName);
+        $statement->bindValue("conteudo",$content);
+        $statement ->execute();
     }
 
 }

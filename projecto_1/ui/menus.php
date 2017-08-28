@@ -12,7 +12,7 @@
             <?php
                 require_once __DIR__."/../helpers/Session.php";
                 if(Session::isSessionSet()) {
-                    echo "<li><a href=\"editar\">Editar</a></li>";
+                    echo "<li style='background-color:powderblue!important;'><a  href=\"editar\">Editar</a></li>";
                 }
 
             ?>
